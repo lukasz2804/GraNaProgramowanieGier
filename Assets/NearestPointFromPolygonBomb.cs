@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class NearestPointFromPolygon : MonoBehaviour {
+public class NearestPointFromPolygonBomb : MonoBehaviour
+{
 
 
     public Transform polygon;
 
     public float dmgRadius;
 
-   // public List<Transform> trLst;
+    // public List<Transform> trLst;
 
     private Vector2 target;
     private List<Vector2> circleIntesections;
@@ -18,26 +19,26 @@ public class NearestPointFromPolygon : MonoBehaviour {
     private List<LineSegment> gizmosLineSegs;
 
     private Transform[] pointsTab;
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         target = this.transform.position;
         circleIntesections = new List<Vector2>();
 
-        if(polygon == null)
+        if (polygon == null)
         {
             polygon = GameObject.Find("PolygonTerrain").transform;
         }
 
-        if(polygon.GetComponent<Triangulator>()!=null)
+        if (polygon.GetComponent<Triangulator>() != null)
         {
             Triangulator trScript = polygon.GetComponent<Triangulator>();
             pointsTab = trScript.GetPoints();
 
         }
-	
-        
-	}
+
+
+    }
 
 
     int Get_line_intersection(float p0_x, float p0_y, float p1_x, float p1_y,
@@ -80,7 +81,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
         }
 
         // Calculate the t that minimizes the distance.
-        float t = ((pt.x - p1.x) * dx + (pt.x- p1.y) * dy) /
+        float t = ((pt.x - p1.x) * dx + (pt.x - p1.y) * dy) /
             (dx * dx + dy * dy);
 
         // See if this represents one of the segment's
@@ -107,7 +108,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
         return Mathf.Sqrt(dx * dx + dy * dy);
     }
 
-    Transform GetClosest(Transform []points)
+    Transform GetClosest(Transform[] points)
     {
         Transform bestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
@@ -131,7 +132,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
 
         float closestDistanceSqr = Mathf.Infinity;
         Vector2 currentPosition = fromP;
-       // int i = 0;
+        // int i = 0;
         int tarIdx = 0;
         for (var i = 0; i < lst.Count; i++)
         {
@@ -143,7 +144,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
                 //  bestTarget = potentialTarget;
                 tarIdx = lst.IndexOf(lst[i].Value);
             }
-       //     i++;
+            //     i++;
         }
         return tarIdx;
     }
@@ -155,7 +156,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
     {
 
         float closestDistanceSqr = Mathf.Infinity;
-        
+
         Vector2 currentPosition = fromP;
         LinkedListNode<Vertex> trg = null;
         // int i = 0;
@@ -168,8 +169,8 @@ public class NearestPointFromPolygon : MonoBehaviour {
             {
                 closestDistanceSqr = dSqrToTarget;
                 //  bestTarget = potentialTarget;
-                trg= lst[i];
-               
+                trg = lst[i];
+
             }
             //     i++;
         }
@@ -177,7 +178,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
     }
 
 
-    int GetClosestPointIdx(Transform []points,Vector2 fromP)
+    int GetClosestPointIdx(Transform[] points, Vector2 fromP)
     {
         Transform bestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
@@ -199,7 +200,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
         return tarIdx;
     }
 
-    bool FirstIsCloserThenSecond(Vector2 src1,Vector2 src2,Vector2 trg)
+    bool FirstIsCloserThenSecond(Vector2 src1, Vector2 src2, Vector2 trg)
     {
         Vector3 directionToTarget = trg - src1;
         float dSqrToTarget = directionToTarget.sqrMagnitude;
@@ -212,10 +213,10 @@ public class NearestPointFromPolygon : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
         target = GetClosest(pointsTab).position;
-	}
+    }
     /*
     private void OnDrawGizmos()
     {
@@ -269,27 +270,27 @@ public class NearestPointFromPolygon : MonoBehaviour {
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private IEnumerator OnCollisionEnter2D(Collision2D collision)
     {
-        //yield return new WaitForSeconds(1.2f);
-       ContactPoint2D contact =  collision.contacts[0];
-      //  Debug.Break();
+        yield return new WaitForSeconds(1f);
+        ContactPoint2D contact = collision.contacts[0];
+        //  Debug.Break();
         Triangulator trianSc = collision.gameObject.transform.GetComponent<Triangulator>();
-        if(trianSc == null)
+        if (trianSc == null)
         {
             //return;
         }
 
         IndexableCyclicalLinkedList<Vertex> lst = trianSc.GetVertLst();
 
-       
 
-        int prevIdx; 
+
+        int prevIdx;
         int pointIdx = GetClosestPointIdx(lst, contact.point);
         LinkedListNode<Vertex> prev, nxt, ctr, closest;
         ctr = GetClosestPointVert(lst, contact.point);
         closest = ctr;
-       // prev = ctr.Previous;
+        // prev = ctr.Previous;
         if (ctr.Next != null)
             nxt = ctr.Next;
         else
@@ -306,16 +307,16 @@ public class NearestPointFromPolygon : MonoBehaviour {
         if (prevIdx < 0)
             prevIdx += pointsTab.Length;
 
-        Vector2 []intersection;
+        Vector2[] intersection;
         //form first line seg
-        intersection = null; 
+        intersection = null;
 
 
 
         List<Vertex> VertToRemoveLst;
         VertToRemoveLst = new List<Vertex>();
         int someIdx = lst.Count;
-            LinkedListNode<Vertex> prevT, nxtT, ctrT;
+        LinkedListNode<Vertex> prevT, nxtT, ctrT;
         ctrT = ctr;
         int a = 0;
 
@@ -327,7 +328,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
         intersectionLineSeg = new List<LineSegmentInnerWithIntersect>();
 
 
-       // return;
+        // return;
         bool areWeOnBeginning = true;
         while (1 == 1)//going counter clock wise by vertexes
         {
@@ -338,7 +339,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
             string temp2 = "jest wieksza od dystansy z ctr do nxt plus dmgRadius" + ctr_next_radius.ToString();
 
             if (ctr == closest && areWeOnBeginning)
-            { 
+            {
                 areWeOnBeginning = false;
             }
 
@@ -352,17 +353,17 @@ public class NearestPointFromPolygon : MonoBehaviour {
                 if (Distance(ctr.Value.Position, contact.point) < dmgRadius)
                 {
                     VertToRemoveLst.Add(ctr.Value);
-                    
+
                 }
                 if (intersection != null)
                 {
                     if (intersection.Length == 1)
                     {
-                      //  lst.AddBefore(nxt, new LinkedListNode<Vertex>(new Vertex(intersection[0], someIdx++)));
-                        if(Distance(nxt.Value.Position, contact.point) < dmgRadius)
+                        //  lst.AddBefore(nxt, new LinkedListNode<Vertex>(new Vertex(intersection[0], someIdx++)));
+                        if (Distance(nxt.Value.Position, contact.point) < dmgRadius)
                         {
                             //odcinek wchodzacy w dmgRadius push.
-                            intersectionLineSeg.Add(new LineSegmentInnerWithIntersect(ctr.Value,nxt.Value, ctr, nxt, intersection[0],true));
+                            intersectionLineSeg.Add(new LineSegmentInnerWithIntersect(ctr.Value, nxt.Value, ctr, nxt, intersection[0], true));
                             //zapamietac intersekcje  wychodzącę.
                             //pod koniec alg lecisz od wychodzacej dopuki nie masz intersekcji. 
                             //powinno dzialac dobrze x171113
@@ -370,24 +371,24 @@ public class NearestPointFromPolygon : MonoBehaviour {
                             circleIntersection = new Vector2[2];
                             Vector2 tempRotatedVec = intersection[0];
                             bool weHaveSecondCircleIntersect = false;
-                         //   float tempAngle = AngleBetweenVectorsDe(nxt.Value.Position, ctr.Value.Position);
-                          //  while(!weHaveSecondCircleIntersect)// check is have lenght already?
-                         //   {
-                          //      circleIntersection[0] = intersection[0];
-                          //      RotateVecPFromI(contact.point, 20, tempRotatedVec);
-                                //kuzwa nie da rady tak trzeba wyliczyc wszystkie intersekcje i zapameitywac gdzie byly z jakimi odcinkami i potem na podstawie
-                                //tych info dodawac te vertexy.
-                                //patrzysz jeszcze czy to jest intersekcja wejsciowa czy wyjsciowa.
-                                //mozna dwie listy bo potem tylko szukasz intersekcji wyjsciowych.
-                                //to lecisz to tych intesekcjach z odcinkami wedle clockwise i bierzesz pierwsza ktora jest pod wzgledem wielkosci konta.
-                                //czyli wyjsciowa intersekcja odcninkowa z najmniejszym katem clockwise co do obecnej wejsciowej.
-                          //  }
+                            //   float tempAngle = AngleBetweenVectorsDe(nxt.Value.Position, ctr.Value.Position);
+                            //  while(!weHaveSecondCircleIntersect)// check is have lenght already?
+                            //   {
+                            //      circleIntersection[0] = intersection[0];
+                            //      RotateVecPFromI(contact.point, 20, tempRotatedVec);
+                            //kuzwa nie da rady tak trzeba wyliczyc wszystkie intersekcje i zapameitywac gdzie byly z jakimi odcinkami i potem na podstawie
+                            //tych info dodawac te vertexy.
+                            //patrzysz jeszcze czy to jest intersekcja wejsciowa czy wyjsciowa.
+                            //mozna dwie listy bo potem tylko szukasz intersekcji wyjsciowych.
+                            //to lecisz to tych intesekcjach z odcinkami wedle clockwise i bierzesz pierwsza ktora jest pod wzgledem wielkosci konta.
+                            //czyli wyjsciowa intersekcja odcninkowa z najmniejszym katem clockwise co do obecnej wejsciowej.
+                            //  }
                             //addbefore nxt until in
                         }
                         else
                         {
                             lineSegsOuter.Add(new LineSegmentWithAngle(ctr.Value, nxt.Value));
-                           // intersectionLineSeg.Add(new LineSegmentInnerWithIntersect(ctr.Value, nxt.Value,intersection[0], false));
+                            // intersectionLineSeg.Add(new LineSegmentInnerWithIntersect(ctr.Value, nxt.Value,intersection[0], false));
                         }
                         //  if (Distance(ctr.Value.Position, contact.point) < dmgRadius)
                         //   {
@@ -402,19 +403,19 @@ public class NearestPointFromPolygon : MonoBehaviour {
                     {
                         if (FirstIsCloserThenSecond(intersection[0], intersection[1], nxt.Value.Position))
                         {
-                       //     lst.AddBefore(nxt, new LinkedListNode<Vertex>(new Vertex(intersection[0], someIdx++)));
+                            //     lst.AddBefore(nxt, new LinkedListNode<Vertex>(new Vertex(intersection[0], someIdx++)));
                             intersectionLineSeg.Add(new LineSegmentInnerWithIntersect(ctr.Value, nxt.Value, ctr, nxt, intersection[1], true));
                             lineSegsOuter.Add(new LineSegmentWithAngle(ctr.Value, nxt.Value));    // previus ctr to nxt
 
-                     //       lst.AddBefore(nxt.Previous, new LinkedListNode<Vertex>(new Vertex(intersection[1], someIdx++)));
+                            //       lst.AddBefore(nxt.Previous, new LinkedListNode<Vertex>(new Vertex(intersection[1], someIdx++)));
                             //  areWeHaveTwoIntesect = true;
                             //  break;
                         }
                         else
                         {
-                       //     lst.AddBefore(nxt, new LinkedListNode<Vertex>(new Vertex(intersection[1], someIdx++)));
-                      //      lst.AddBefore(nxt.Previous, new LinkedListNode<Vertex>(new Vertex(intersection[0], someIdx++)));
-                            intersectionLineSeg.Add(new LineSegmentInnerWithIntersect(ctr.Value, nxt.Value,ctr,nxt, intersection[0], true));
+                            //     lst.AddBefore(nxt, new LinkedListNode<Vertex>(new Vertex(intersection[1], someIdx++)));
+                            //      lst.AddBefore(nxt.Previous, new LinkedListNode<Vertex>(new Vertex(intersection[0], someIdx++)));
+                            intersectionLineSeg.Add(new LineSegmentInnerWithIntersect(ctr.Value, nxt.Value, ctr, nxt, intersection[0], true));
                             lineSegsOuter.Add(new LineSegmentWithAngle(ctr.Value, nxt.Value));
                             // areWeHaveTwoIntesect = true;
                             // break;
@@ -428,7 +429,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
                     // a jak lecisz po wszystkich to wtedy nie mozesz breakowac jak juz masz intersekcje z dmgRadius.
 
                 }
-                
+
             }
 
             ctr = nxt;
@@ -504,14 +505,14 @@ public class NearestPointFromPolygon : MonoBehaviour {
             float angleOftrg = Angle(trg.A.Position - trg.B.Position);
             float angleOfOuter = Angle(lineSegsOuter[0].A.Position - lineSegsOuter[0].B.Position);
             LinkedListNode<Vertex> tmp;
-          
-           
+
+
             bool weHaveIntersect = false;
             Vector2 intersecVector = trg.intersection;
-                Vector2 ctrV;
+            Vector2 ctrV;
             ctrV = intersecVector;
             float basicAngle = Angle(trg.intersection - contact.point);
-            foreach(LineSegmentWithAngle i  in lineSegsOuter)
+            foreach (LineSegmentWithAngle i in lineSegsOuter)
             {
                 i.angle -= basicAngle;
                 if (i.angle < 0)
@@ -521,17 +522,17 @@ public class NearestPointFromPolygon : MonoBehaviour {
             //  objListOrder.Sort((x, y) => x.OrderDate.CompareTo(y.OrderDate));
             lineSegsOuter.OrderByDescending(x => x.angle);
             float crossingX, crossingY;
-           // lineSegsOuter.Sort()
-           tmp = lst.AddAfter(trg.aLink, new Vertex(trg.intersection, someIdx++));
+            // lineSegsOuter.Sort()
+            tmp = lst.AddAfter(trg.aLink, new Vertex(trg.intersection, someIdx++));
             ctrV = RotateVecPFromI(contact.point, -2, ctrV);
             while (!weHaveIntersect)// check is have lenght already?
             {
                 Vector2 nxtV;
 
                 LineSegmentWithAngle nearestLineSeg = lineSegsOuter[0];
-                 nxtV =  RotateVecPFromI(contact.point, -30, ctrV); // czy obraca w dobra strone?
+                nxtV = RotateVecPFromI(contact.point, -30, ctrV); // czy obraca w dobra strone?
                 if (Get_line_intersection(ctrV.x, ctrV.y, nxtV.x, nxtV.y, nearestLineSeg.A.Position.x,
-                    nearestLineSeg.A.Position.y, nearestLineSeg.B.Position.x, nearestLineSeg.B.Position.y,out crossingX,out crossingY) == 0)
+                    nearestLineSeg.A.Position.y, nearestLineSeg.B.Position.x, nearestLineSeg.B.Position.y, out crossingX, out crossingY) == 0)
                 {
                     ctrV = nxtV;
                     nxtV = RotateVecPFromI(contact.point, -30, ctrV);
@@ -546,22 +547,22 @@ public class NearestPointFromPolygon : MonoBehaviour {
                 }
 
                 gizmosLineSegs.Add(new LineSegment(new Vertex(ctrV,/*idx*/ 1000), new Vertex(nxtV,/*idx*/ 1000)));
-               // lst.ad
+                // lst.ad
 
 
-            //kuzwa nie da rady tak trzeba wyliczyc wszystkie intersekcje i zapameitywac gdzie byly z jakimi odcinkami i potem na podstawie
-            //tych info dodawac te vertexy.
-            //patrzysz jeszcze czy to jest intersekcja wejsciowa czy wyjsciowa.
-            //mozna dwie listy bo potem tylko szukasz intersekcji wyjsciowych.
-            //to lecisz to tych intesekcjach z odcinkami wedle clockwise i bierzesz pierwsza ktora jest pod wzgledem wielkosci konta.
-            //czyli wyjsciowa intersekcja odcninkowa z najmniejszym katem clockwise co do obecnej wejsciowej.
-              }
+                //kuzwa nie da rady tak trzeba wyliczyc wszystkie intersekcje i zapameitywac gdzie byly z jakimi odcinkami i potem na podstawie
+                //tych info dodawac te vertexy.
+                //patrzysz jeszcze czy to jest intersekcja wejsciowa czy wyjsciowa.
+                //mozna dwie listy bo potem tylko szukasz intersekcji wyjsciowych.
+                //to lecisz to tych intesekcjach z odcinkami wedle clockwise i bierzesz pierwsza ktora jest pod wzgledem wielkosci konta.
+                //czyli wyjsciowa intersekcja odcninkowa z najmniejszym katem clockwise co do obecnej wejsciowej.
+            }
         }
 
 
 
 
-        for (int i=0;i<VertToRemoveLst.Count;i++)
+        for (int i = 0; i < VertToRemoveLst.Count; i++)
         {
             lst.Remove(VertToRemoveLst[i]);
         }
@@ -591,7 +592,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
         for (int i = 0; i < lst.Count; i++)
         {
             Debug.Log(lst[i].Value);
-            
+
         }
 
 
@@ -602,7 +603,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
 
         ExplosionWaker explWk = this.GetComponent<ExplosionWaker>();
 
-        if(explWk != null)
+        if (explWk != null)
         {
             explWk.WakeExplo(collision.contacts[0].point, dmgRadius);
         }
@@ -614,14 +615,14 @@ public class NearestPointFromPolygon : MonoBehaviour {
     }
 
 
-   // public 
+    // public 
 
-    public Vector2 MidPointOfLineSeg(Vector2 p1,Vector2 p2)
+    public Vector2 MidPointOfLineSeg(Vector2 p1, Vector2 p2)
     {
         return new Vector2((p1.x + p2.x) / 2, (p1.y + p2.y) / 2);
     }
 
-    public Vector2 []Intersection(float cx, float cy, float radius,
+    public Vector2[] Intersection(float cx, float cy, float radius,
             Vector2 lineStart, Vector2 lineEnd)
     {
 
@@ -630,22 +631,22 @@ public class NearestPointFromPolygon : MonoBehaviour {
         Vector2 intersection2;
         int intersections = FindLineCircleIntersections(cx, cy, radius, lineStart, lineEnd, out intersection1, out intersection2);
 
-        
+
 
         if (intersections == 1)
         {
-            Vector2 []inter;
+            Vector2[] inter;
             inter = new Vector2[1];
             inter[0] = intersection1;
-            return inter; 
+            return inter;
         }
-        if( intersections == 2)
+        if (intersections == 2)
         {
             // są to intesekcje tylko ze lini z odcinka a nie odcinka wiec trzeba sprawdzic dystansy.
-            
+
             Vector2 mid = MidPointOfLineSeg(lineStart, lineEnd);
             double distFromMid = Distance(lineEnd, mid);
-            if(Distance(mid,intersection1)< distFromMid &&  Distance(mid,intersection2)< distFromMid)
+            if (Distance(mid, intersection1) < distFromMid && Distance(mid, intersection2) < distFromMid)
             {
                 Vector2[] inter;
                 inter = new Vector2[2];
@@ -675,16 +676,16 @@ public class NearestPointFromPolygon : MonoBehaviour {
                 }
             }
 
-           
-           // return inter;
+
+            // return inter;
         }
         else
         {
             return null;// no intersections at all
 
         }
-        
-     
+
+
 
     }
 
@@ -749,7 +750,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
     }
 
     private int FindLineCircleIntersections(float cx, float cy, float radius,
-        Vector2 point1, Vector2 point2, Vector2 []intersection)
+        Vector2 point1, Vector2 point2, Vector2[] intersection)
     {
         float dx, dy, A, B, C, det, t;
 
@@ -772,7 +773,7 @@ public class NearestPointFromPolygon : MonoBehaviour {
             // One solution.
             t = -B / (2 * A);
             intersection[0] = new Vector2(point1.x + t * dx, point1.y + t * dy);
-            
+
             return 1;
         }
         else
