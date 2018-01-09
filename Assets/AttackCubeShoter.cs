@@ -23,7 +23,7 @@ public class AttackCubeShoter : MonoBehaviour {
 
     private void Awake()
     {
-        GameObject variableForPrefab = (GameObject)Resources.Load("prefabs/AttackCube", typeof(GameObject));
+        GameObject variableForPrefab = (GameObject)Resources.Load("prefabs/AttackBomb", typeof(GameObject));
         //  explosTr = GameObject.Find("Explosion").transform;
         tr = variableForPrefab.transform;
     }

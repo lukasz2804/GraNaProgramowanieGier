@@ -15,7 +15,7 @@ public class ExplosionWaker : MonoBehaviour {
     }
 
     public void WakeExplo(Vector2 pt, float radius)
-    {
+    {       
         if (explosTr != null)
         {
             explosTr.transform.localScale = new Vector3(radius, radius);
