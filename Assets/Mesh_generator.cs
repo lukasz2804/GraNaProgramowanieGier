@@ -20,9 +20,15 @@ public class Mesh_generator : MonoBehaviour {
             vertices = new Vector3[numberOfPoints];
 
             Vector2[] uvs = new Vector2[numberOfPoints];
+            int[] triangles;
 
-            int[] triangles = new int[(numberOfPoints -2)*3];
-
+            if (numberOfPoints < int.MaxValue) { 
+            triangles = new int[(numberOfPoints -2)];
+            }
+            else
+            {
+                triangles = new int[(int.MaxValue)-2];
+            }
             triangles = sc.GetTriangulatorIdxs();
 
             mesh.vertices = sc.GetVertices();

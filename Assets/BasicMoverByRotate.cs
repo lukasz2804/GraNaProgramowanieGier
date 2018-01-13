@@ -5,18 +5,23 @@ using UnityEngine;
 public class BasicMoverByRotate : MonoBehaviour {
 
     Rigidbody2D rg;
+    TurnsSystem turns;
+    GameObject player;
     public Vector3[] points;
     public float torquePower;
     private Vector2 src;
     private Vector2 trg;
-	// Use this for initialization
-	void Start ()
+    GameObject objToSpawn;
+    // Use this for initialization
+    void Start ()
     {
-        rg = GetComponent<Rigidbody2D>();
+        
         points = new Vector3[4];
         src = Vector2.zero;
         trg = Vector2.zero;
-	}
+        setActivePlayer(GameObject.FindGameObjectWithTag("Player"));
+        
+    }
 
     private void OnDrawGizmos()
     {
@@ -28,6 +33,9 @@ public class BasicMoverByRotate : MonoBehaviour {
     {
         BoxCollider2D colli = GetComponent<BoxCollider2D>();
         BoxCollider2D collider = (BoxCollider2D)this.gameObject.GetComponent<Collider2D>();
+        //add this to change player
+        turns = GetComponent<TurnsSystem>();
+        setActivePlayer(turns.getActivePlayer());
 
         float top = collider.offset.y + (collider.size.y / 3f);
         float btm = collider.offset.y - (collider.size.y / 3f);
@@ -73,9 +81,15 @@ public class BasicMoverByRotate : MonoBehaviour {
         }
         // BoxCollider2D collider = (BoxCollider2D)gameObject.collider2D;
 
-        
 
 
 
     }
+
+    public void setActivePlayer(GameObject player)
+    {
+        this.player = player;
+        this.rg = player.GetComponent<Rigidbody2D>();
+    }
+
 }

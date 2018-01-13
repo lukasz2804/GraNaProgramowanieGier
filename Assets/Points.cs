@@ -87,11 +87,11 @@ public class Points : MonoBehaviour {
 
     public void Save()
     {
-        Texture2D newTexture = new Texture2D(100, 100, TextureFormat.ARGB32, false);
+        Texture2D newTexture = new Texture2D(200, 400, TextureFormat.ARGB32, false);
 
-        for(int i=0;i<100; i++)
+        for(int i=0;i<200; i++)
         {
-            for(int j = 0; j < 100; j++)
+            for(int j = 0; j < 400; j++)
             {
                 int change = (int)Random.Range(0, 19);
                 if (change < 10)
