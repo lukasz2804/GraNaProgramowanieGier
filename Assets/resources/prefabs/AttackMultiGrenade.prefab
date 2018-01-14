@@ -24,11 +24,11 @@ GameObject:
   - component: {fileID: 50432774000851738}
   - component: {fileID: 61784461817310234}
   - component: {fileID: 247241934261130986}
-  - component: {fileID: 114754991245693406}
+  - component: {fileID: 114022511042263816}
   - component: {fileID: 114740694389592266}
   m_Layer: 0
   m_Name: AttackMultiGrenade
-  m_TagString: Untagged
+  m_TagString: multigrenade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1309655086656462}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300004, guid: bc47d6d03a2cd0b4ab4297dfd2edfe5f, type: 3}
 --- !u!50 &50432774000851738
 Rigidbody2D:
   serializedVersion: 4
@@ -130,6 +130,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114022511042263816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1309655086656462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874789119e94fe44d91985e8ceb0cb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polygon: {fileID: 0}
+  dmgRadius: 2.5
 --- !u!114 &114740694389592266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,19 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosTr: {fileID: 0}
---- !u!114 &114754991245693406
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1309655086656462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f6f50a831e48a641bf016960cd75d47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  polygon: {fileID: 0}
-  dmgRadius: 3.5
 --- !u!247 &247241934261130986
 ConstantForce2D:
   m_ObjectHideFlags: 1

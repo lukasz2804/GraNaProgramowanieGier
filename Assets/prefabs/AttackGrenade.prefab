@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 247219502682296966}
   - component: {fileID: 114710563202158952}
   m_Layer: 0
-  m_Name: AttackCubeBigRad
+  m_Name: AttackGrenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

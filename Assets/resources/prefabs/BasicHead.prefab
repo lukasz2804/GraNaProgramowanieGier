@@ -103,7 +103,7 @@ MonoBehaviour:
   typeOfWeapon: 0
   tr: {fileID: 0}
   maximumPower: 0
-  power: 0
+  powerMultiplier: 20
 --- !u!212 &212238053027251204
 SpriteRenderer:
   m_ObjectHideFlags: 1

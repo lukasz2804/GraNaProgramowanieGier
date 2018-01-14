@@ -63,6 +63,7 @@
      <Compile Include="Assets\ConvexChecker.cs" />
      <Compile Include="Assets\CyclicalList.cs" />
      <Compile Include="Assets\ExplosionWaker.cs" />
+     <Compile Include="Assets\HUDWeapons.cs" />
      <Compile Include="Assets\Line2D\Core\Line2DMeshBuffer.cs" />
      <Compile Include="Assets\Line2D\Core\Line2DPoint.cs" />
      <Compile Include="Assets\Line2D\Core\Line2DRenderer.cs" />
@@ -78,8 +79,6 @@
      <Compile Include="Assets\MyVecExt.cs" />
      <Compile Include="Assets\Navigator.cs" />
      <Compile Include="Assets\NearestPointFromPolygon.cs" />
-     <Compile Include="Assets\NearestPointFromPolygonBomb.cs" />
-     <Compile Include="Assets\NearestPointFromPolygonMultiGrenade.cs" />
      <Compile Include="Assets\Oldish\SomeOldPowerTorque.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\MaterialSwitcher.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\OutlineAnimation.cs" />
