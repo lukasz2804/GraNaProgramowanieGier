@@ -35,7 +35,8 @@ public class AttackCubeShoter : MonoBehaviour {
     }
     private IEnumerator Fire(float waitTime)
     {
-            isShotting = true;
+        isShotting = true;
+        
         Transform tmp;
             Vector2 trg;
             trg = LineFuctions.RotateVecPFromI(Vector2.zero, degreeAngle, Vector2.up);
@@ -45,8 +46,10 @@ public class AttackCubeShoter : MonoBehaviour {
        // rg.velocity = new Vector2(trg.x * powerMultiplier, trg.y * powerMultiplier);
             tmp = Instantiate(tr, this.transform.position + new Vector3(trg.x*2, trg.y*2), this.transform.rotation, null);
         tmp.GetComponent<Rigidbody2D>().velocity = new Vector2(trg.x * powerMultiplier, trg.y * powerMultiplier);
-             yield return new WaitForSeconds(waitTime);
-            isShotting = false;
+        yield return new WaitForSeconds(waitTime);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<TurnsSystem>().setChangePlayer(true);
+        isShotting = false;
+        
            
             //  print("WaitAndPrint " + Time.time);
         
@@ -59,6 +62,7 @@ public class AttackCubeShoter : MonoBehaviour {
         power = Input.GetAxis("Fire1");
         if(power > 0.1f && !isShotting)
         {
+            
             //isShotting = true;
             StartCoroutine(Fire(1.0f));
 

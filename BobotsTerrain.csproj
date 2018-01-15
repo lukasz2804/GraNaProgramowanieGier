@@ -113,6 +113,7 @@
     <Compile Include="Assets\OutlineEffect\LinkedSet.cs" />
     <Compile Include="Assets\OutlineEffect\Outline.cs" />
     <Compile Include="Assets\OutlineEffect\OutlineEffect.cs" />
+    <Compile Include="Assets\Players.cs" />
     <Compile Include="Assets\Points.cs" />
     <Compile Include="Assets\PolygonColliderGen.cs" />
     <Compile Include="Assets\PolygonColliderUpdater.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Assets\TriangleChecker.cs" />
     <Compile Include="Assets\TriangulateButton.cs" />
     <Compile Include="Assets\Triangulator.cs" />
+    <Compile Include="Assets\TurnsSystem.cs" />
     <Compile Include="Assets\Vertex.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -19,7 +19,10 @@ public class Players : MonoBehaviour {
         player2List = new List<GameObject>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject objToSpawn;
-        
+
+        GameObject P1ListRoot = GameObject.Find("Player1List");
+        GameObject P2ListRoot = GameObject.Find("Player2List");
+
         if (player1Counter > 0) {
             player1List.Add(player);
         for (int i = 0; i < player1Counter-1; i++)
@@ -31,6 +34,7 @@ public class Players : MonoBehaviour {
             objToSpawn.AddComponent<SpriteRenderer>();
             objToSpawn.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("BasicHead");
             objToSpawn.transform.position = player.transform.position;
+                objToSpawn.transform.parent = P1ListRoot.transform;
             player1List.Add(objToSpawn);
             
         }
@@ -47,6 +51,7 @@ public class Players : MonoBehaviour {
             objToSpawn.AddComponent<SpriteRenderer>();
             objToSpawn.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("BasicHeadOther");
             objToSpawn.transform.position = player.transform.position;
+            objToSpawn.transform.parent = P2ListRoot.transform;
             player2List.Add(objToSpawn);
         }
 
