@@ -9,7 +9,11 @@ public class HUDWeapons : MonoBehaviour {
 
     public Image weaponUI;
 
-    private int curr=0;
+    public Text degreeUI;
+
+    private int curr=0, degreeAngle = 90;
+
+    private int degreeStep = 10;
 
     private int weaponsCunt = 3;
 
@@ -19,6 +23,25 @@ public class HUDWeapons : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (degreeAngle >= 360)
+                degreeAngle = 0;
+            else
+                degreeAngle = degreeAngle + degreeStep;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (degreeAngle <= 0)
+                degreeAngle = 360;
+            else
+                degreeAngle = degreeAngle - degreeStep;
+        }
+
+        degreeUI.text = "" + degreeAngle;
+
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             if(curr >= weaponsCunt-1)

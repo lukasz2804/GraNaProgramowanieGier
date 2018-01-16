@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869c6f73a8222c0409132a8935d75e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degreeAngle: 0
+  degreeAngle: 0.5
   typeOfWeapon: 0
   tr: {fileID: 0}
   maximumPower: 0

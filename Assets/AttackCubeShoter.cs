@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AttackCubeShoter : MonoBehaviour {
 
-    public float degreeAngle;
+    private float degreeAngle=90;
+    private int degreeStep = 10;
 
     public int typeOfWeapon;
 
@@ -63,7 +64,23 @@ public class AttackCubeShoter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update ()
-    {        
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (degreeAngle >= 360)
+                degreeAngle = 0;
+            else
+                degreeAngle = degreeAngle + degreeStep;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (degreeAngle <= 0)
+                degreeAngle = 360;
+            else
+                degreeAngle = degreeAngle - degreeStep;
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             if (selectedWeapon >= weaponsCunt-1)
