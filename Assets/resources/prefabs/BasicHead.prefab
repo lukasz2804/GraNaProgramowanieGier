@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 61127444957490912}
   - component: {fileID: 50084409707249776}
   - component: {fileID: 114919010686741010}
-  - component: {fileID: 114831600977724768}
-  - component: {fileID: 114055323169084822}
+  - component: {fileID: 114664239574295532}
+  - component: {fileID: 114969053235413480}
   m_Layer: 0
   m_Name: BasicHead
   m_TagString: Player
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636806372633058}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.011538, y: 4.0680733, z: 0}
+  m_LocalPosition: {x: -412.05, y: -300.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,7 +90,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0507708, y: 2.1719227}
   m_EdgeRadius: 0
---- !u!114 &114055323169084822
+--- !u!114 &114664239574295532
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -98,28 +98,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1636806372633058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49491ebc507cdaf4097b4d718652a3f0, type: 3}
+  m_Script: {fileID: 11500000, guid: b72ecdaf25e2a914ca8c6a3ec9b7cb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: []
-  torquePower: 12
---- !u!114 &114831600977724768
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1636806372633058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49491ebc507cdaf4097b4d718652a3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {x: 9.826269, y: 5.4777145, z: 0}
-  - {x: 9.664, y: 4.1201973, z: 0}
-  - {x: 8.388556, y: 5.6495695, z: 0}
-  - {x: 8.226286, y: 4.292053, z: 0}
-  torquePower: 12
+  BasicMoverByRotate: {fileID: 114969053235413480}
+  AttackCubeShoter: {fileID: 114919010686741010}
+  BasicMoveByDoubleJump: {fileID: 0}
+  BasicMoveByJumping: {fileID: 0}
+  BasicMoveByRotateAndJump: {fileID: 0}
+  BasicMoveByWheel: {fileID: 0}
 --- !u!114 &114919010686741010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,6 +123,19 @@ MonoBehaviour:
   tr: {fileID: 4707056173585670, guid: e7cb047c5d2ce2648bd9c2dc606c200d, type: 2}
   maximumPower: 0
   powerMultiplier: 20
+--- !u!114 &114969053235413480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636806372633058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49491ebc507cdaf4097b4d718652a3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []
+  torquePower: 0
 --- !u!212 &212238053027251204
 SpriteRenderer:
   m_ObjectHideFlags: 1

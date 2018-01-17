@@ -47,7 +47,7 @@ public class AttackCubeShoter : MonoBehaviour {
             tmp = Instantiate(tr, this.transform.position + new Vector3(trg.x*2, trg.y*2), this.transform.rotation, null);
         tmp.GetComponent<Rigidbody2D>().velocity = new Vector2(trg.x * powerMultiplier, trg.y * powerMultiplier);
         yield return new WaitForSeconds(waitTime);
-        GameObject.FindGameObjectWithTag("Player").GetComponent<TurnsSystem>().setChangePlayer(true);
+        GameObject.Find("MotherOfEverything").transform.Find("Manager").GetComponent<TurnsSystem>().setChangePlayer(true);
         isShotting = false;
         
            

@@ -5,12 +5,12 @@ using UnityEngine;
 public class CameraTarget : MonoBehaviour
 {
     public Transform trg;
-    GameObject gObject;
+    Transform gObject;
     TurnsSystem turns;
 	// Use this for initialization
 	void Start ()
     {
-        gObject = GameObject.FindGameObjectWithTag("Player");
+		gObject = GameObject.Find("MotherOfEverything").transform.Find("Manager");
         turns = gObject.GetComponent<TurnsSystem>();
     }
 	

@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class BasicMoverByRotate : MonoBehaviour {
 
-    Rigidbody2D rg;
-    TurnsSystem turns;
-    GameObject player;
+    Rigidbody2D _rigidbody2D;
     public Vector3[] points;
-    public float torquePower;
+    public float torquePower = 100;
     private Vector2 src;
     private Vector2 trg;
-    GameObject objToSpawn;
-    // Use this for initialization
-    void Start ()
+	// Use this for initialization
+	void Start ()
     {
-        
+        _rigidbody2D = GetComponent<Rigidbody2D>();
         points = new Vector3[4];
         src = Vector2.zero;
         trg = Vector2.zero;
-        setActivePlayer(GameObject.FindGameObjectWithTag("Player"));
-        
-    }
+	}
 
     private void OnDrawGizmos()
     {
@@ -33,9 +28,6 @@ public class BasicMoverByRotate : MonoBehaviour {
     {
         BoxCollider2D colli = GetComponent<BoxCollider2D>();
         BoxCollider2D collider = (BoxCollider2D)this.gameObject.GetComponent<Collider2D>();
-        //add this to change player
-        turns = GetComponent<TurnsSystem>();
-        setActivePlayer(turns.getActivePlayer());
 
         float top = collider.offset.y + (collider.size.y / 3f);
         float btm = collider.offset.y - (collider.size.y / 3f);
@@ -69,27 +61,21 @@ public class BasicMoverByRotate : MonoBehaviour {
  
             }
         
-        if (Mathf.Abs(AnglePower) > 0.3 && rg != null)
+        if (Mathf.Abs(AnglePower) > 0.3 && _rigidbody2D != null)
         {
             //isShotting = true;
             // rg.AddTorque(AnglePower*torquePower);
             src = maxPoint;
             trg = src + Vector2.right * torquePower * AnglePower;
-            rg.AddForceAtPosition(Vector2.right* torquePower*AnglePower, maxPoint);
+            _rigidbody2D.AddForceAtPosition(Vector2.right* torquePower*AnglePower, maxPoint);
         //    rg.AddForceAtPosition(Vector2.left * torquePower, (Vector2)transform.position + collider.offset);
 
         }
         // BoxCollider2D collider = (BoxCollider2D)gameObject.collider2D;
 
+        
 
 
 
     }
-
-    public void setActivePlayer(GameObject player)
-    {
-        this.player = player;
-        this.rg = player.GetComponent<Rigidbody2D>();
-    }
-
 }

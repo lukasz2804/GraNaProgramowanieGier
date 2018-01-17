@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class Players : MonoBehaviour {
+	public Transform player1ListTr;
+	public Transform player2ListTr;
     public int player1Counter;
     public int player2Counter;
     public List<GameObject> player1List; 
@@ -30,7 +32,9 @@ public class Players : MonoBehaviour {
             objToSpawn = new GameObject("PlayerOne"+i);
             //Add Components
             objToSpawn.AddComponent<Rigidbody2D>();
-            objToSpawn.AddComponent<BoxCollider2D>();
+                objToSpawn.AddComponent<FunctionSwitcher>();
+                objToSpawn.AddComponent<BoxCollider2D>();
+                objToSpawn.AddComponent<BasicMoverByRotate>();
             objToSpawn.AddComponent<SpriteRenderer>();
             objToSpawn.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("BasicHead");
             objToSpawn.transform.position = player.transform.position;
@@ -49,6 +53,8 @@ public class Players : MonoBehaviour {
             objToSpawn.AddComponent<Rigidbody2D>();
             objToSpawn.AddComponent<BoxCollider2D>();
             objToSpawn.AddComponent<SpriteRenderer>();
+            objToSpawn.AddComponent<FunctionSwitcher>();
+            objToSpawn.AddComponent<BasicMoverByRotate>();
             objToSpawn.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("BasicHeadOther");
             objToSpawn.transform.position = player.transform.position;
             objToSpawn.transform.parent = P2ListRoot.transform;
