@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicMoveByRotateAndJump : MonoBehaviour
+public class BasicMoveByRotateAndJump : BasicMove
 {
     Rigidbody2D _rigidbody2D;
     BoxCollider2D _boxCollider2D;

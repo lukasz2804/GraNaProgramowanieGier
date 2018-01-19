@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity Robots MyRepo", "Unity Robots MyRepo.csproj", "{117195CC-3F05-1703-0E62-FA396A1B13C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity Robots MyRepo.Editor", "Unity Robots MyRepo.Editor.csproj", "{473EBAEE-D335-9513-2197-7E27061F504A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{117195CC-3F05-1703-0E62-FA396A1B13C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{117195CC-3F05-1703-0E62-FA396A1B13C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{117195CC-3F05-1703-0E62-FA396A1B13C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{117195CC-3F05-1703-0E62-FA396A1B13C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{473EBAEE-D335-9513-2197-7E27061F504A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{473EBAEE-D335-9513-2197-7E27061F504A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{473EBAEE-D335-9513-2197-7E27061F504A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{473EBAEE-D335-9513-2197-7E27061F504A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

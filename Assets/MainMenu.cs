@@ -29,6 +29,7 @@ public class MainMenu : MonoBehaviour {
 	public Transform Mother;
 
 	public AudioClip sound;
+    public AudioClip sound2;
 	private AudioSource source { get { return GetComponent<AudioSource> ();}}
 
 	void DisableAllChild(Transform tr)
@@ -39,7 +40,7 @@ public class MainMenu : MonoBehaviour {
 	void Start() {
 		Mother = GameObject.Find ("MotherOfEverything").transform;
 		main = Mother.Find ("Main Camera").transform.GetComponent<Camera> ();
-		polygon1 = Mother.Find("Polygons");
+		polygon1 = Mother.Find("Polygons1");
 		Manager = Mother.Find("Manager");
 		polygon2 = Mother.Find("Polygons2");
 		polygon3 = Mother.Find("Polygons3");
@@ -100,27 +101,33 @@ public class MainMenu : MonoBehaviour {
 			main.enabled = true;
 			camera2.enabled = false;
 			camera1.enabled = false;
-			polygon1.gameObject.SetActive (true);
+			polygon2.gameObject.SetActive (false);
+            polygon3.gameObject.SetActive(false);
 			Manager.gameObject.SetActive (true);
 			Text.gameObject.SetActive (true);
+            source.clip = sound2;
 
 			// state = true;
 
 		}
 		if (Level2) {
-			main.enabled = true;
+            source.clip = sound2;
+            main.enabled = true;
 			camera2.enabled = false;
 			camera1.enabled = false;
-			polygon2.gameObject.SetActive (true);
-			Manager.gameObject.SetActive (true);
+            polygon1.gameObject.SetActive(false);
+            polygon3.gameObject.SetActive(false);
+            Manager.gameObject.SetActive (true);
 			Text.gameObject.SetActive (true);
 		}
 		if (Level3) {
-			main.enabled = true;
+            source.clip = sound2;
+            main.enabled = true;
 			camera2.enabled = false;
 			camera1.enabled = false;
-			polygon3.gameObject.SetActive (true);
-			Manager.gameObject.SetActive (true);
+			polygon1.gameObject.SetActive (false);
+            polygon2.gameObject.SetActive(false);
+            Manager.gameObject.SetActive (true);
 			Text.gameObject.SetActive (true) ;
 		}
 		if (toMainMenu) {

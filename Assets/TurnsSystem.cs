@@ -13,6 +13,7 @@ public class TurnsSystem : MonoBehaviour {
     Players players;
 	Transform activePlayer, manager;
     int time;
+    public int timeForTurn;
     Coroutine waiter;
 	public Text text;
 
@@ -24,12 +25,13 @@ public class TurnsSystem : MonoBehaviour {
 		main.enabled = false;
 		camera2.enabled = false;
 		camera1.enabled = true;
-
-		objectToAccess = GameObject.FindGameObjectWithTag("Player").transform;
+        objectToAccess = GameObject.Find("MotherOfEverything").transform.Find("Player1List").GetChild(0);
+       // objectToAccess = GameObject.FindGameObjectWithTag("Player").transform;
         activePlayer = objectToAccess;
+        activePlayer.GetComponent<FunctionSwitcher>().Switch();
         manager = GameObject.Find("MotherOfEverything").transform.Find("Manager");
         players = manager.GetComponent<Players>();
-        time = 20;
+        time = timeForTurn;
         text.text = time.ToString();
         waitActive = false;
     }
@@ -56,7 +58,7 @@ public class TurnsSystem : MonoBehaviour {
             time--;
             text.text = time.ToString();
         }
-        time = 20;
+        time = timeForTurn;
         waitActive = false;
     }
 
@@ -71,7 +73,7 @@ public class TurnsSystem : MonoBehaviour {
         activePlayer.GetComponent<FunctionSwitcher>().Switch();
         activePlayer = players.getNext().transform;
         activePlayer.GetComponent<FunctionSwitcher>().Switch();
-        time = 20;
+        time = timeForTurn;
 
     }
 }

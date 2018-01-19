@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour {
 	void Update ()
     {
 
-        if (GetComponent<CameraTarget>() != null)
+        if (GetComponent<CameraTarget>() != null && camTr.trg != null)
             this.transform.position = new Vector3(camTr.trg.position.x,camTr.trg.position.y,transform.position.z);
 
 

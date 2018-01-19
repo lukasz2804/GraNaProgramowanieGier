@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollisionGizmos : MonoBehaviour {
 
+
+    public bool IsDebugMode;
 	// Use this for initialization
     Vector2 []gizmosDrawTabColl;
     int numberOfGimzos;
@@ -17,38 +19,44 @@ public class CollisionGizmos : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        int i=0;
-        
-        foreach (ContactPoint2D contact in coll.contacts)
+        if (IsDebugMode)
         {
-            numberOfGimzos = coll.contacts.Length;
-            Debug.DrawRay(contact.point, contact.normal, Color.white);
-            Debug.Log(contact.point.ToString() + contact.normal.ToString());
-            
-            gizmosDrawTabColl[i] = contact.point;
-            i++;
-            gizmosDrawTabColl[i] = contact.normal;
-            i++;
+            int i = 0;
 
+            foreach (ContactPoint2D contact in coll.contacts)
+            {
+                numberOfGimzos = coll.contacts.Length;
+                Debug.DrawRay(contact.point, contact.normal, Color.white);
+                Debug.Log(contact.point.ToString() + contact.normal.ToString());
+
+                gizmosDrawTabColl[i] = contact.point;
+                i++;
+                gizmosDrawTabColl[i] = contact.normal;
+                i++;
+
+            }
+
+            Debug.Log(" ");
         }
-
-        Debug.Log(" ");
     }
 
     void OnCollisionEnter(Collision collision)
     {
-
-        foreach (ContactPoint contact in collision.contacts)
+        if (IsDebugMode)
         {
-            Debug.DrawRay(contact.point, contact.normal, Color.white);
-            Debug.Log(contact.point.ToString() + contact.normal.ToString());
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                Debug.DrawRay(contact.point, contact.normal, Color.white);
+                Debug.Log(contact.point.ToString() + contact.normal.ToString());
+            }
         }
         
     }
 
     void OnDrawGizmos()
     {
-        if(Application.isPlaying)
+        
+        if(Application.isPlaying && IsDebugMode)
         {
             for(int i=0;i<numberOfGimzos*2;i+=2)
             {

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicMoverByRotate : MonoBehaviour {
+public class BasicMoverByRotate : BasicMove {
 
     Rigidbody2D _rigidbody2D;
     public Vector3[] points;
-    public float torquePower = 100;
+    public float torquePower = 20;
     private Vector2 src;
     private Vector2 trg;
 	// Use this for initialization
