@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114070284724653194}
   - component: {fileID: 114607454055305928}
   - component: {fileID: 114487891436694706}
+  - component: {fileID: 114462192090040456}
   m_Layer: 0
   m_Name: BasicWheeler
   m_TagString: Untagged
@@ -217,6 +218,18 @@ MonoBehaviour:
   torqueB: 1000
   TractionBack: 1
   carRotationSpeed: 22.5
+--- !u!114 &114462192090040456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1379984047784122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc9a83b6826a7544bcb331401f2101e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: BasicWheeler
 --- !u!114 &114487891436694706
 MonoBehaviour:
   m_ObjectHideFlags: 1

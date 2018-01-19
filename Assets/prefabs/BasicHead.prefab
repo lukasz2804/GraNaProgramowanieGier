@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114493056747377522}
   - component: {fileID: 114195729995364562}
   - component: {fileID: 114539084135913858}
+  - component: {fileID: 114882109950200778}
   m_Layer: 0
   m_Name: BasicHead
   m_TagString: Player
@@ -132,6 +133,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: []
   torquePower: 22
+--- !u!114 &114882109950200778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1227407147407256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc9a83b6826a7544bcb331401f2101e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: BasicHead
 --- !u!212 &212481193962479036
 SpriteRenderer:
   m_ObjectHideFlags: 1

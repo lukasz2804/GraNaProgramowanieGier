@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114287609458155532}
   - component: {fileID: 114884016980161726}
   - component: {fileID: 114516937187952902}
+  - component: {fileID: 114575029787510298}
   m_Layer: 0
   m_Name: BasicJumper
   m_TagString: Untagged
@@ -119,6 +120,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BasicMove: {fileID: 114884016980161726}
   AttackCubeShoter: {fileID: 114287609458155532}
+--- !u!114 &114575029787510298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265303304672698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc9a83b6826a7544bcb331401f2101e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: BasicJumper
 --- !u!114 &114884016980161726
 MonoBehaviour:
   m_ObjectHideFlags: 1

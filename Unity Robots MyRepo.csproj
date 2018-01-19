@@ -112,6 +112,7 @@
     <Compile Include="Assets\Mesh_updater.cs" />
     <Compile Include="Assets\MouseHover.cs" />
     <Compile Include="Assets\MyVecExt.cs" />
+    <Compile Include="Assets\NameInString.cs" />
     <Compile Include="Assets\Navigator.cs" />
     <Compile Include="Assets\NearestPointFromPolygon.cs" />
     <Compile Include="Assets\Oldish\SomeOldPowerTorque.cs" />

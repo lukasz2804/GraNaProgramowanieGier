@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114760871399761722}
   - component: {fileID: 114099618814972986}
   - component: {fileID: 114739675284696902}
+  - component: {fileID: 114993375604076962}
   m_Layer: 0
   m_Name: BasicDoubleJumper
   m_TagString: Untagged
@@ -136,6 +137,18 @@ MonoBehaviour:
   tr: {fileID: 0}
   maximumPower: 0
   powerMultiplier: 20
+--- !u!114 &114993375604076962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1336026730794678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc9a83b6826a7544bcb331401f2101e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: BasicHeadDoubleJumper
 --- !u!212 &212838243527532098
 SpriteRenderer:
   m_ObjectHideFlags: 1

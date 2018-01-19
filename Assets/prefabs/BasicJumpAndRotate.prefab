@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114597629346438264}
   - component: {fileID: 114954191545470072}
   - component: {fileID: 114703016147305172}
+  - component: {fileID: 114415775586112206}
   m_Layer: 0
   m_Name: BasicJumpAndRotate
   m_TagString: Untagged
@@ -90,6 +91,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0507708, y: 2.1719227}
   m_EdgeRadius: 0
+--- !u!114 &114415775586112206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1519913373892620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc9a83b6826a7544bcb331401f2101e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: BasicJumpNRotateHead
 --- !u!114 &114597629346438264
 MonoBehaviour:
   m_ObjectHideFlags: 1
