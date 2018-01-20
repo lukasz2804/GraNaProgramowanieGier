@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AttackCubeShoter : MonoBehaviour {
 
-    public float degreeAngle;
+    private float degreeAngle=90;
+    private int degreeStep = 10;
 
     public int typeOfWeapon;
 
@@ -14,16 +15,24 @@ public class AttackCubeShoter : MonoBehaviour {
 
     public float powerMultiplier = 20;
 
+    private string prefix = "prefabs/";
+
+    private string sufix = "AttackBomb";
+
+    private int weaponsCunt = 3;
+
     float power;
 
     private IEnumerator coroutine;
 
     bool isShotting;
 
+    private int selectedWeapon = 1;
+
 
     private void Awake()
     {
-        GameObject variableForPrefab = (GameObject)Resources.Load("prefabs/AttackCube", typeof(GameObject));
+        GameObject variableForPrefab = (GameObject)Resources.Load(prefix + sufix, typeof(GameObject));
         //  explosTr = GameObject.Find("Explosion").transform;
         tr = variableForPrefab.transform;
     }
@@ -59,6 +68,54 @@ public class AttackCubeShoter : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (degreeAngle >= 360)
+                degreeAngle = 0;
+            else
+                degreeAngle = degreeAngle + degreeStep;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (degreeAngle <= 0)
+                degreeAngle = 360;
+            else
+                degreeAngle = degreeAngle - degreeStep;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (selectedWeapon >= weaponsCunt-1)
+                selectedWeapon = 0;
+            else
+                selectedWeapon++;       
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (selectedWeapon <= 0)
+                selectedWeapon =  weaponsCunt - 1;
+            else
+                selectedWeapon--;
+        }
+
+        switch (selectedWeapon)
+        {
+            case 1:
+                sufix = "AttackBomb";
+                break;
+            case 2:
+                sufix = "AttackGrenade";
+                break;
+            default:
+                sufix = "AttackMultiGrenade";
+                break;
+        }
+
+        GameObject variableForPrefab = (GameObject)Resources.Load(prefix + sufix, typeof(GameObject));
+        tr = variableForPrefab.transform;
+
         power = Input.GetAxis("Fire1");
         if(power > 0.1f && !isShotting)
         {

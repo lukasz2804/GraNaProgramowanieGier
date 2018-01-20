@@ -269,14 +269,19 @@ public class NearestPointFromPolygon : MonoBehaviour {
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private IEnumerator OnCollisionEnter2D(Collision2D collision)
     {
-       ContactPoint2D contact =  collision.contacts[0];
+        if (gameObject.tag == "bomb" || gameObject.tag == "grenade")
+        {
+            yield return new WaitForSeconds(1f);
+        }
+
+        ContactPoint2D contact =  collision.contacts[0];
       //  Debug.Break();
         Triangulator trianSc = collision.gameObject.transform.GetComponent<Triangulator>();
         if(trianSc == null)
         {
-            return;
+            //return;
         }
 
         IndexableCyclicalLinkedList<Vertex> lst = trianSc.GetVertLst();
@@ -606,6 +611,10 @@ public class NearestPointFromPolygon : MonoBehaviour {
             explWk.WakeExplo(collision.contacts[0].point, dmgRadius);
         }
 
+        if (gameObject.tag == "multigrenade")
+        {
+            yield return new WaitForSeconds(1.5f);
+        }
 
         Destroy(gameObject);
 
