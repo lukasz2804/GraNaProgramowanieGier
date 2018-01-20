@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D5D86B80-A550-D248-2FEC-6D8D44BDD781}</ProjectGuid>
+    <ProjectGuid>{D4B76C79-1FF1-D27D-6731-9BCB78BA360B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -54,6 +54,10 @@
      <Compile Include="Assets\AttackCubeGen.cs" />
      <Compile Include="Assets\AttackCubeShoter.cs" />
      <Compile Include="Assets\AutoDestroyAfterAnim.cs" />
+     <Compile Include="Assets\BasicMoveByDoubleJump.cs" />
+     <Compile Include="Assets\BasicMoveByJumping.cs" />
+     <Compile Include="Assets\BasicMoveByRotateAndJump.cs" />
+     <Compile Include="Assets\BasicMoveByWheel.cs" />
      <Compile Include="Assets\BasicMoverByRotate.cs" />
      <Compile Include="Assets\BuildPoly.cs" />
      <Compile Include="Assets\CameraFollow.cs" />
@@ -65,6 +69,7 @@
      <Compile Include="Assets\DamageManagerSc.cs" />
      <Compile Include="Assets\ExplosionWaker.cs" />
      <Compile Include="Assets\FunctionSwitcher.cs" />
+     <Compile Include="Assets\HUDWeapons.cs" />
      <Compile Include="Assets\Line2D\Core\Line2DMeshBuffer.cs" />
      <Compile Include="Assets\Line2D\Core\Line2DPoint.cs" />
      <Compile Include="Assets\Line2D\Core\Line2DRenderer.cs" />

@@ -1895,7 +1895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &392835693
 Transform:
   m_ObjectHideFlags: 0
@@ -3484,6 +3484,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1817097465}
+  - {fileID: 1685791857}
+  - {fileID: 1335734269}
   m_Father: {fileID: 1332401913}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4426,6 +4428,7 @@ GameObject:
   - component: {fileID: 1188981763}
   - component: {fileID: 1188981762}
   - component: {fileID: 1188981761}
+  - component: {fileID: 1188981766}
   m_Layer: 0
   m_Name: camera1
   m_TagString: MainCamera
@@ -4506,6 +4509,23 @@ Transform:
   m_Father: {fileID: 1332401913}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1188981766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1188981760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf36888e75f960a4ab4324d93ce8df20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 21300000, guid: 295953a528726044a937a5d1324dec7e, type: 3}
+  - {fileID: 21300000, guid: 6768f6ef350d44342bd15b71ee5a7e5a, type: 3}
+  - {fileID: 21300000, guid: 9286c03a778efa54fbfc9782f0abbc31, type: 3}
+  weaponUI: {fileID: 1685791858}
+  degreeUI: {fileID: 1335734270}
 --- !u!1 &1191577544
 GameObject:
   m_ObjectHideFlags: 0
@@ -5241,6 +5261,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1335734268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1335734269}
+  - component: {fileID: 1335734271}
+  - component: {fileID: 1335734270}
+  m_Layer: 5
+  m_Name: DegreeAngleText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1335734269
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1335734268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 902157135}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 502, y: 192.63}
+  m_SizeDelta: {x: 40.5, y: 48.05}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1335734270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1335734268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1335734271
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1335734268}
 --- !u!1 &1375747697
 GameObject:
   m_ObjectHideFlags: 0
@@ -6383,6 +6477,7 @@ GameObject:
   - component: {fileID: 1681413800}
   - component: {fileID: 1681413799}
   - component: {fileID: 1681413798}
+  - component: {fileID: 1681413803}
   m_Layer: 0
   m_Name: camera2
   m_TagString: MainCamera
@@ -6463,6 +6558,91 @@ Transform:
   m_Father: {fileID: 1332401913}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1681413803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1681413797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf36888e75f960a4ab4324d93ce8df20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 21300000, guid: 295953a528726044a937a5d1324dec7e, type: 3}
+  - {fileID: 21300000, guid: 6768f6ef350d44342bd15b71ee5a7e5a, type: 3}
+  - {fileID: 21300000, guid: 9286c03a778efa54fbfc9782f0abbc31, type: 3}
+  weaponUI: {fileID: 1685791858}
+  degreeUI: {fileID: 1335734270}
+--- !u!1 &1685791856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1685791857}
+  - component: {fileID: 1685791859}
+  - component: {fileID: 1685791858}
+  m_Layer: 5
+  m_Name: HUDWeapones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1685791857
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1685791856}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 902157135}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 543.05, y: 206.41}
+  m_SizeDelta: {x: 41.6, y: 75.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1685791858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1685791856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 6768f6ef350d44342bd15b71ee5a7e5a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1685791859
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1685791856}
 --- !u!1 &1687237456
 GameObject:
   m_ObjectHideFlags: 0
@@ -7097,6 +7277,7 @@ GameObject:
   - component: {fileID: 1833909621}
   - component: {fileID: 1833909623}
   - component: {fileID: 1833909622}
+  - component: {fileID: 1833909624}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7262,6 +7443,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trg: {fileID: 1810849391}
+--- !u!114 &1833909624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1833909614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf36888e75f960a4ab4324d93ce8df20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 21300000, guid: 295953a528726044a937a5d1324dec7e, type: 3}
+  - {fileID: 21300000, guid: 6768f6ef350d44342bd15b71ee5a7e5a, type: 3}
+  - {fileID: 21300000, guid: 9286c03a778efa54fbfc9782f0abbc31, type: 3}
+  weaponUI: {fileID: 1685791858}
+  degreeUI: {fileID: 1335734270}
 --- !u!1 &1837534413
 GameObject:
   m_ObjectHideFlags: 0
