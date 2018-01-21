@@ -22,9 +22,9 @@ public class TurnsSystem : MonoBehaviour {
 	public Camera main;
 
     void Start () {
-		main.enabled = false;
+		main.enabled = true;
 		camera2.enabled = false;
-		camera1.enabled = true;
+		camera1.enabled = false;
         objectToAccess = GameObject.Find("MotherOfEverything").transform.Find("Player1List").GetChild(0);
        // objectToAccess = GameObject.FindGameObjectWithTag("Player").transform;
         activePlayer = objectToAccess;

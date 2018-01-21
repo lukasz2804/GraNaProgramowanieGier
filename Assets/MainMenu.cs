@@ -27,6 +27,8 @@ public class MainMenu : MonoBehaviour {
 	public Transform Manager;
 	public Text Text;
 	public Transform Mother;
+    public Transform ShopUI;
+    public ModuleShop ModuleShop;
 
 	public AudioClip sound;
     public AudioClip sound2;
@@ -101,10 +103,12 @@ public class MainMenu : MonoBehaviour {
 			main.enabled = true;
 			camera2.enabled = false;
 			camera1.enabled = false;
-			polygon2.gameObject.SetActive (false);
-            polygon3.gameObject.SetActive(false);
-			Manager.gameObject.SetActive (true);
-			Text.gameObject.SetActive (true);
+            //polygon2.gameObject.SetActive (false);
+            //polygon3.gameObject.SetActive(false);
+            //Manager.gameObject.SetActive (true);
+            ShopUI.gameObject.SetActive(true);
+            ModuleShop.SetLevelDecission(1);
+            Text.gameObject.SetActive (true);
             source.clip = sound2;
 
 			// state = true;
@@ -115,20 +119,24 @@ public class MainMenu : MonoBehaviour {
             main.enabled = true;
 			camera2.enabled = false;
 			camera1.enabled = false;
-            polygon1.gameObject.SetActive(false);
-            polygon3.gameObject.SetActive(false);
-            Manager.gameObject.SetActive (true);
-			Text.gameObject.SetActive (true);
+            // polygon1.gameObject.SetActive(false);
+            //  polygon3.gameObject.SetActive(false);
+            //  Manager.gameObject.SetActive (true);
+            ShopUI.gameObject.SetActive(true);
+            ModuleShop.SetLevelDecission(2);
+            Text.gameObject.SetActive (true);
 		}
 		if (Level3) {
             source.clip = sound2;
             main.enabled = true;
 			camera2.enabled = false;
 			camera1.enabled = false;
-			polygon1.gameObject.SetActive (false);
-            polygon2.gameObject.SetActive(false);
-            Manager.gameObject.SetActive (true);
-			Text.gameObject.SetActive (true) ;
+            //	polygon1.gameObject.SetActive (false);
+            //   polygon2.gameObject.SetActive(false);
+            //    Manager.gameObject.SetActive (true);
+            ShopUI.gameObject.SetActive(true);
+            ModuleShop.SetLevelDecission(3);
+            Text.gameObject.SetActive (true) ;
 		}
 		if (toMainMenu) {
 			camera2.enabled = false;

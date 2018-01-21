@@ -6,17 +6,24 @@ public class CameraTarget : MonoBehaviour
 {
     public Transform trg;
     Transform gObject;
+    Transform _startGameObj;
     TurnsSystem turns;
 	// Use this for initialization
 	void Start ()
     {
 		gObject = GameObject.Find("MotherOfEverything").transform.Find("Manager");
+        _startGameObj = GameObject.Find("MotherOfEverything").transform.Find("Start");
         turns = gObject.GetComponent<TurnsSystem>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        trg = turns.getActivePlayer().transform;
-	}
+        if (turns.gameObject.activeInHierarchy)
+        {
+            trg = turns.getActivePlayer().transform;
+        }
+        else
+            trg = _startGameObj;
+    }
 }
