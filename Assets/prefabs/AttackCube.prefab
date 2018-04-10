@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 61889100002217818}
   - component: {fileID: 247183112269340298}
   - component: {fileID: 114600533525423254}
+  - component: {fileID: 114392797822022152}
   m_Layer: 0
   m_Name: AttackCube
   m_TagString: Untagged
@@ -129,13 +130,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114600533525423254
+--- !u!114 &114392797822022152
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822029218617500}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0589fea12951b1f4e970904aba57e1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polygon: {fileID: 0}
+  dmgRadius: 3.63
+--- !u!114 &114600533525423254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822029218617500}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 874789119e94fe44d91985e8ceb0cb6b, type: 3}
   m_Name: 

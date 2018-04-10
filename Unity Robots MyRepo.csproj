@@ -90,6 +90,7 @@
     <Compile Include="Assets\BuildPoly.cs" />
     <Compile Include="Assets\CameraFollow.cs" />
     <Compile Include="Assets\CameraTarget.cs" />
+    <Compile Include="Assets\clipper.cs" />
     <Compile Include="Assets\CollisionGizmos.cs" />
     <Compile Include="Assets\CompaperScript.cs" />
     <Compile Include="Assets\ConvexChecker.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Assets\NameInString.cs" />
     <Compile Include="Assets\Navigator.cs" />
     <Compile Include="Assets\NearestPointFromPolygon.cs" />
+    <Compile Include="Assets\NearestPointFromPolygonClipper.cs" />
     <Compile Include="Assets\Oldish\SomeOldPowerTorque.cs" />
     <Compile Include="Assets\OutlineEffect\Demo\MaterialSwitcher.cs" />
     <Compile Include="Assets\OutlineEffect\Demo\OutlineAnimation.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="Assets\Points.cs" />
     <Compile Include="Assets\PolygonColliderGen.cs" />
     <Compile Include="Assets\PolygonColliderUpdater.cs" />
+    <Compile Include="Assets\PolygonGenFromImg.cs" />
     <Compile Include="Assets\RandomMover.cs" />
     <Compile Include="Assets\RotatorOfTwoVecs.cs" />
     <Compile Include="Assets\Simple UI\Samples\IconPreview.cs" />
