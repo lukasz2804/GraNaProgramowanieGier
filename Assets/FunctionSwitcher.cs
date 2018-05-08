@@ -14,9 +14,7 @@ public class FunctionSwitcher : MonoBehaviour {
 	{
         AttackCubeShoter.enabled = !AttackCubeShoter.enabled;
         BasicMove.Switch();
-
-       // BasicMoverByRotate.enabled = !BasicMoverByRotate.enabled;
-		//AttackCubeShoter.enabled = !AttackCubeShoter.enabled;
+        
 	}
 
     // Use this for initialization

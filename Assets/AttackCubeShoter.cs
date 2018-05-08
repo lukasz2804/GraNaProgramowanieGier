@@ -40,18 +40,15 @@ public class AttackCubeShoter : MonoBehaviour {
         Transform tmp;
             Vector2 trg;
             trg = LineFuctions.RotateVecPFromI(Vector2.zero, degreeAngle, Vector2.up);
-         //   Rigidbody2D rg = tr.GetComponent<Rigidbody2D>();
-          //  trg = trg *powerMultiplier;
-        //    rg.velocity = trg;
-       // rg.velocity = new Vector2(trg.x * powerMultiplier, trg.y * powerMultiplier);
             tmp = Instantiate(tr, this.transform.position + new Vector3(trg.x*2, trg.y*2), this.transform.rotation, null);
         tmp.GetComponent<Rigidbody2D>().velocity = new Vector2(trg.x * powerMultiplier, trg.y * powerMultiplier);
-        yield return new WaitForSeconds(waitTime);
+        GameObject.Find("MotherOfEverything").transform.Find("Manager").GetComponent<TurnsSystem>().setPlayerNull();
+        yield return new WaitUntil(() => tmp == null);
+        GameObject.Find("MotherOfEverything").transform.Find("Manager").GetComponent<Players>().dealDMG(51);
+
+ 
         GameObject.Find("MotherOfEverything").transform.Find("Manager").GetComponent<TurnsSystem>().setChangePlayer(true);
         isShotting = false;
-        
-           
-            //  print("WaitAndPrint " + Time.time);
         
     }
  

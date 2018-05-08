@@ -39,57 +39,14 @@ public class Players : MonoBehaviour {
         for(int i=0;i<P1ListRoot.transform.childCount;i++)
         {
             player1List.Add(P1ListRoot.transform.GetChild(i).gameObject);
+            P1ListRoot.transform.GetChild(i).gameObject.AddComponent<DamageManagerSc>();
         }
 
         for (int i = 0; i < P2ListRoot.transform.childCount; i++)
         {
             player2List.Add(P2ListRoot.transform.GetChild(i).gameObject);
+            P2ListRoot.transform.GetChild(i).gameObject.AddComponent<DamageManagerSc>();
         }
-        /*
-                for(int i=0;i<P1ListRoot.transform.childCount;i++)
-                {
-                    player1List.Add(P1ListRoot.transform.GetChild(i).gameObject);
-                }
-                if (P1ListRoot.transform.childCount > 0)
-                {
-                    //player1List.Add(playerRobot);
-                    for (int i = 0; i < player1Counter-1; i++)
-                    {
-                        objToSpawn = new GameObject("PlayerOne"+i);
-                        //Add Components
-                        objToSpawn.AddComponent<Rigidbody2D>();
-                            objToSpawn.AddComponent<FunctionSwitcher>();
-                            objToSpawn.AddComponent<BoxCollider2D>();
-                            objToSpawn.AddComponent<BasicMoverByRotate>();
-                        objToSpawn.AddComponent<SpriteRenderer>();
-                        objToSpawn.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("BasicHead");
-                        objToSpawn.transform.position = playerRobot.transform.position;
-                            objToSpawn.transform.parent = P1ListRoot.transform;
-                        player1List.Add(objToSpawn);
-
-                    }
-                }
-
-
-
-                for (int i = 0; i < player2Counter; i++)
-                {
-                    objToSpawn = new GameObject("PlayerTwo" + i);
-                    //Add Components
-                    objToSpawn.AddComponent<Rigidbody2D>();
-                    objToSpawn.AddComponent<BoxCollider2D>();
-                    objToSpawn.AddComponent<SpriteRenderer>();
-                    objToSpawn.AddComponent<FunctionSwitcher>();
-                    objToSpawn.AddComponent<BasicMoverByRotate>();
-                    objToSpawn.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("BasicHeadOther");
-                    objToSpawn.transform.position = playerRobot.transform.position;
-                    objToSpawn.transform.parent = P2ListRoot.transform;
-                    player2List.Add(objToSpawn);
-                }
-
-
-
-            */
     }
     internal GameObject getNext()
     {
@@ -109,5 +66,35 @@ public class Players : MonoBehaviour {
 
         }
     }
+
+    internal void dealDMG(int dmg)
+    {
+        for (int i = 0; i < P1ListRoot.transform.childCount; i++)
+        {
+            if (player1List[i].active)
+            {
+                player1List[i].GetComponent<DamageManagerSc>().basicLife -= dmg;
+                if(player1List[i].GetComponent<DamageManagerSc>().basicLife <= 0)
+                {
+                    player1List[i].SetActive(false);
+                }
+            }
+        }
+
+        for (int i = 0; i < P2ListRoot.transform.childCount; i++)
+        {
+            if (player2List[i].active)
+            {
+                player2List[i].GetComponent<DamageManagerSc>().basicLife -= dmg;
+                if (player2List[i].GetComponent<DamageManagerSc>().basicLife <= 0)
+                {
+                    player2List[i].SetActive(false);
+                }
+            }
+
+        }
+
+    }
+
 
 }

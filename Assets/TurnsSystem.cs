@@ -26,7 +26,6 @@ public class TurnsSystem : MonoBehaviour {
 		camera2.enabled = false;
 		camera1.enabled = false;
         objectToAccess = GameObject.Find("MotherOfEverything").transform.Find("Player1List").GetChild(0);
-       // objectToAccess = GameObject.FindGameObjectWithTag("Player").transform;
         activePlayer = objectToAccess;
         activePlayer.GetComponent<FunctionSwitcher>().Switch();
         manager = GameObject.Find("MotherOfEverything").transform.Find("Manager");
@@ -70,10 +69,23 @@ public class TurnsSystem : MonoBehaviour {
     {
         StopCoroutine(waiter);
         waiter = StartCoroutine(Wait());
+        if (activePlayer != null) { 
         activePlayer.GetComponent<FunctionSwitcher>().Switch();
+        }
         activePlayer = players.getNext().transform;
         activePlayer.GetComponent<FunctionSwitcher>().Switch();
         time = timeForTurn;
 
     }
+
+
+    internal void setPlayerNull()
+    {
+        StopCoroutine(waiter);
+        waiter = StartCoroutine(Wait());
+        activePlayer.GetComponent<FunctionSwitcher>().Switch();
+        activePlayer = null;
+       
+    }
+
 }

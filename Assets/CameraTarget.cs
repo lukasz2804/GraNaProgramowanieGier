@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,19 @@ public class CameraTarget : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        try
+        {
+           Transform tr = GameObject.Find("AttackCube(Clone)").transform;
+            if (tr != null)
+            {
+                trg = tr;
+                return;
+            }
+        }catch(Exception e)
+        {
+
+        }
+
         if (turns.gameObject.activeInHierarchy)
         {
             trg = turns.getActivePlayer().transform;
