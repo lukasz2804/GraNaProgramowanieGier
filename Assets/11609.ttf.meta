@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: f59c26ef7a3c47240aa916e6fc377825
+timeCreated: 1526406740
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: 'Dorothea Deco '
+  fontNames:
+  - 'Dorothea Deco '
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
